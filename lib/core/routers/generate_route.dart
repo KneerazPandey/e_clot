@@ -1,6 +1,9 @@
 import 'package:e_clot/common/common.dart';
 import 'package:e_clot/core/routers/app_router.dart';
+import 'package:e_clot/presentation/auth/pages/enter_password_page.dart';
+import 'package:e_clot/presentation/auth/pages/forget_password_page.dart';
 import 'package:e_clot/presentation/auth/pages/signin_page.dart';
+import 'package:e_clot/presentation/auth/pages/signup_page.dart';
 import 'package:e_clot/presentation/splash/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +18,21 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         settings: settings,
         builder: (BuildContext context) => const SigninPage(),
+      );
+    case AppRouter.enterPasswordPageRoute:
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (BuildContext context) => const EnterPasswordPage(),
+      );
+    case AppRouter.forgetPasswordPageRoute:
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (BuildContext context) => const ForgetPasswordPage(),
+      );
+    case AppRouter.signupPageRoute:
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (BuildContext context) => const SignupPage(),
       );
     default:
       return MaterialPageRoute(

@@ -1,4 +1,5 @@
 import 'package:e_clot/core/routers/routers.dart';
+import 'package:e_clot/core/theme/app_theme.dart';
 import 'package:e_clot/presentation/splash/bloc/splash_cubit.dart';
 import 'package:e_clot/presentation/splash/pages/splash_page.dart';
 import 'package:flutter/material.dart';
@@ -19,11 +20,7 @@ class MyApp extends StatelessWidget {
       },
       child: MaterialApp(
         title: 'E-Commerce Clot',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-          fontFamily: 'CircularStd',
-        ),
+        theme: AppTheme.appTheme,
         debugShowCheckedModeBanner: false,
         home: const SplashPage(),
         onGenerateRoute: onGenerateRoute,

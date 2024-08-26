@@ -3,19 +3,19 @@ import 'package:e_clot/core/routers/routers.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+class ForgetPasswordPage extends StatelessWidget {
+  const ForgetPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const BasicAppBar(hideBack: true),
+      appBar: const BasicAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            _signinText(),
+            _forgetPasswordText(),
             const SizedBox(height: 20),
             _emailField(),
             const SizedBox(height: 20),
@@ -28,9 +28,9 @@ class SigninPage extends StatelessWidget {
     );
   }
 
-  Widget _signinText() {
+  Widget _forgetPasswordText() {
     return const Text(
-      'Sign in',
+      'Forget Password',
       style: TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 32,
@@ -41,7 +41,7 @@ class SigninPage extends StatelessWidget {
   Widget _emailField() {
     return const TextField(
       decoration: InputDecoration(
-        hintText: 'Enter Email',
+        hintText: 'Enter your email',
       ),
     );
   }
@@ -50,12 +50,12 @@ class SigninPage extends StatelessWidget {
     return RichText(
       text: TextSpan(
         children: [
-          const TextSpan(text: "Don't have an account?"),
+          const TextSpan(text: "Remember your password?"),
           TextSpan(
-            text: ' Creatre One',
+            text: ' Signin',
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.pushNamed(context, AppRouter.signupPageRoute);
+                Navigator.pushNamed(context, AppRouter.signinPageRoute);
               },
             style: const TextStyle(
               fontWeight: FontWeight.bold,
