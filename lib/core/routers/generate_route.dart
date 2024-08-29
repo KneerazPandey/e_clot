@@ -2,6 +2,7 @@ import 'package:e_clot/common/common.dart';
 import 'package:e_clot/core/routers/app_router.dart';
 import 'package:e_clot/presentation/auth/pages/enter_password_page.dart';
 import 'package:e_clot/presentation/auth/pages/forget_password_page.dart';
+import 'package:e_clot/presentation/auth/pages/gender_and_age_selection_page.dart';
 import 'package:e_clot/presentation/auth/pages/signin_page.dart';
 import 'package:e_clot/presentation/auth/pages/signup_page.dart';
 import 'package:e_clot/presentation/splash/pages/splash_page.dart';
@@ -33,6 +34,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         settings: settings,
         builder: (BuildContext context) => const SignupPage(),
+      );
+    case AppRouter.genderAndAgeSelectionPageRoute:
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (BuildContext context) => const GenderAndAgeSelectionPage(),
       );
     default:
       return MaterialPageRoute(

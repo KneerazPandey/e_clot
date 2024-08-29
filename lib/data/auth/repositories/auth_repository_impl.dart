@@ -10,4 +10,10 @@ class AuthRepositoryImpl implements AuthRepository {
     var firebaseService = sl<AuthFirebaseService>();
     return await firebaseService.signUp(user);
   }
+
+  @override
+  Future<Either> getAges() async {
+    var firebaseService = sl<AuthFirebaseService>();
+    return await firebaseService.getAges();
+  }
 }

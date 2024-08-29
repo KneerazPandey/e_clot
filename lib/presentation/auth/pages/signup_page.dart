@@ -100,7 +100,7 @@ class SignupPage extends StatelessWidget {
     return BasicAppButton(
       title: 'Continue',
       onPressed: () {
-        Navigator.pushNamed(context, AppRouter.enterPasswordPageRoute);
+        Navigator.pushNamed(context, AppRouter.genderAndAgeSelectionPageRoute);
       },
     );
   }
