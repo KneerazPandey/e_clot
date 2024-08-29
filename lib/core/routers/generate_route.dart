@@ -33,7 +33,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case AppRouter.signupPageRoute:
       return MaterialPageRoute(
         settings: settings,
-        builder: (BuildContext context) => const SignupPage(),
+        builder: (BuildContext context) => SignupPage(),
       );
     case AppRouter.genderAndAgeSelectionPageRoute:
       return MaterialPageRoute(
