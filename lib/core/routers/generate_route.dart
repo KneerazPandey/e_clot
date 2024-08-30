@@ -18,12 +18,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case AppRouter.signinPageRoute:
       return MaterialPageRoute(
         settings: settings,
-        builder: (BuildContext context) => const SigninPage(),
+        builder: (BuildContext context) => SigninPage(),
       );
     case AppRouter.enterPasswordPageRoute:
       return MaterialPageRoute(
         settings: settings,
-        builder: (BuildContext context) => const EnterPasswordPage(),
+        builder: (BuildContext context) => EnterPasswordPage(),
       );
     case AppRouter.forgetPasswordPageRoute:
       return MaterialPageRoute(

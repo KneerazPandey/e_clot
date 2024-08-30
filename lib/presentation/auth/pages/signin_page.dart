@@ -1,10 +1,13 @@
 import 'package:e_clot/common/common.dart';
 import 'package:e_clot/core/routers/routers.dart';
+import 'package:e_clot/data/auth/models/user_signin_request.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+  SigninPage({super.key});
+
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +42,9 @@ class SigninPage extends StatelessWidget {
   }
 
   Widget _emailField() {
-    return const TextField(
-      decoration: InputDecoration(
+    return TextField(
+      controller: _emailController,
+      decoration: const InputDecoration(
         hintText: 'Enter Email',
       ),
     );
@@ -70,7 +74,14 @@ class SigninPage extends StatelessWidget {
     return BasicAppButton(
       title: 'Continue',
       onPressed: () {
-        Navigator.pushNamed(context, AppRouter.enterPasswordPageRoute);
+        Navigator.pushNamed(
+          context,
+          AppRouter.enterPasswordPageRoute,
+          arguments: UserSigninRequest(
+            email: _emailController.text,
+            password: '',
+          ),
+        );
       },
     );
   }

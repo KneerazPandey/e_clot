@@ -3,6 +3,7 @@ import 'package:e_clot/common/basic_reactive_button.dart';
 import 'package:e_clot/core/bloc/button/button_cubit.dart';
 import 'package:e_clot/core/bloc/button/button_state.dart';
 import 'package:e_clot/core/helpers/app_bottom_sheet.dart';
+import 'package:e_clot/core/routers/app_router.dart';
 import 'package:e_clot/core/theme/theme.dart';
 import 'package:e_clot/data/auth/models/user_creation_request.dart';
 import 'package:e_clot/domain/auth/usecase/sign_up.dart';
@@ -49,9 +50,28 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
+                backgroundColor: Colors.red,
                 behavior: SnackBarBehavior.floating,
               );
               ScaffoldMessenger.of(context).showSnackBar(snackbar);
+            }
+            if (state is ButtonSuccessState) {
+              var snackbar = const SnackBar(
+                content: Text(
+                  'Signin in successfull. Please login with your new credentials',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                backgroundColor: Colors.green,
+                behavior: SnackBarBehavior.floating,
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackbar);
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                AppRouter.signinPageRoute,
+                (route) => false,
+              );
             }
           },
           child: Column(
