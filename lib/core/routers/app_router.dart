@@ -5,4 +5,7 @@ class AppRouter {
   static const String forgetPasswordPageRoute = '/forget-password';
   static const String signupPageRoute = '/signup';
   static const String genderAndAgeSelectionPageRoute = '/gender-age-selection';
+  static const String passwordResetEmailPageRoute = '/password-reset-email';
+
+  static const String homePageRoute = '/home';
 }

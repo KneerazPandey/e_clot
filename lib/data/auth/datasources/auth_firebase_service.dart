@@ -11,6 +11,8 @@ abstract class AuthFirebaseService {
   Future<Either> getAges();
 
   Future<Either> signin(UserSigninRequest user);
+
+  Future<Either> sendPasswordResetEmail(String email);
 }
 
 class AuthFirebaseServiceImpl implements AuthFirebaseService {
@@ -81,6 +83,16 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
       return const Left('Invalid email and password');
     } catch (error) {
       return const Left('Server error. Please try again');
+    }
+  }
+
+  @override
+  Future<Either> sendPasswordResetEmail(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      return const Right('Password reset email sent successfully');
+    } catch (error) {
+      return const Left('Please try again.');
     }
   }
 }

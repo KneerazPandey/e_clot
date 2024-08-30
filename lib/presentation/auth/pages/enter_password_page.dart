@@ -41,6 +41,11 @@ class EnterPasswordPage extends StatelessWidget {
                   behavior: SnackBarBehavior.floating,
                 );
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  AppRouter.homePageRoute,
+                  (route) => false,
+                );
               }
             },
             child: Column(

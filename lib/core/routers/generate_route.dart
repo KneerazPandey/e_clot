@@ -3,8 +3,10 @@ import 'package:e_clot/core/routers/app_router.dart';
 import 'package:e_clot/presentation/auth/pages/enter_password_page.dart';
 import 'package:e_clot/presentation/auth/pages/forget_password_page.dart';
 import 'package:e_clot/presentation/auth/pages/gender_and_age_selection_page.dart';
+import 'package:e_clot/presentation/auth/pages/password_reset_email_page.dart';
 import 'package:e_clot/presentation/auth/pages/signin_page.dart';
 import 'package:e_clot/presentation/auth/pages/signup_page.dart';
+import 'package:e_clot/presentation/home/pages/home_page.dart';
 import 'package:e_clot/presentation/splash/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +30,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case AppRouter.forgetPasswordPageRoute:
       return MaterialPageRoute(
         settings: settings,
-        builder: (BuildContext context) => const ForgetPasswordPage(),
+        builder: (BuildContext context) => ForgetPasswordPage(),
       );
     case AppRouter.signupPageRoute:
       return MaterialPageRoute(
@@ -39,6 +41,16 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         settings: settings,
         builder: (BuildContext context) => const GenderAndAgeSelectionPage(),
+      );
+    case AppRouter.passwordResetEmailPageRoute:
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (BuildContext context) => const PasswordResetEmailPage(),
+      );
+    case AppRouter.homePageRoute:
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (BuildContext context) => const HomePage(),
       );
     default:
       return MaterialPageRoute(
