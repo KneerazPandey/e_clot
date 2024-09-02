@@ -21,6 +21,13 @@ class SplashPage extends StatelessWidget {
             (route) => false,
           );
         }
+        if (state is AuthenticatedState) {
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            AppRouter.homePageRoute,
+            (route) => false,
+          );
+        }
       },
       child: Scaffold(
         backgroundColor: AppColors.primary,

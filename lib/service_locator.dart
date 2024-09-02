@@ -2,6 +2,7 @@ import 'package:e_clot/data/auth/datasources/auth_firebase_service.dart';
 import 'package:e_clot/data/auth/repositories/auth_repository_impl.dart';
 import 'package:e_clot/domain/auth/repositories/auth_repository.dart';
 import 'package:e_clot/domain/auth/usecase/get_ages.dart';
+import 'package:e_clot/domain/auth/usecase/is_logged_in.dart';
 import 'package:e_clot/domain/auth/usecase/send_password_reset_email.dart';
 import 'package:e_clot/domain/auth/usecase/sign_in.dart';
 import 'package:e_clot/domain/auth/usecase/sign_up.dart';
@@ -25,4 +26,5 @@ Future<void> initializeDependency() async {
   sl.registerLazySingleton<SendPasswordResetEmailUseCase>(
     () => SendPasswordResetEmailUseCase(),
   );
+  sl.registerLazySingleton<IsLoggedInUseCase>(() => IsLoggedInUseCase());
 }

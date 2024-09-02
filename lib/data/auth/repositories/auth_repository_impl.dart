@@ -29,4 +29,10 @@ class AuthRepositoryImpl implements AuthRepository {
     var firebaseService = sl<AuthFirebaseService>();
     return await firebaseService.sendPasswordResetEmail(email);
   }
+
+  @override
+  Future<bool> isLoggedIn() async {
+    var firebaseService = sl<AuthFirebaseService>();
+    return await firebaseService.isLoggedIn();
+  }
 }
