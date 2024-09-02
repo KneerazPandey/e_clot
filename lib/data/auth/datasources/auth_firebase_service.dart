@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:e_clot/core/constant/firebase_constant.dart';
 import 'package:e_clot/data/auth/models/user_creation_request.dart';
+import 'package:e_clot/data/auth/models/user_model.dart';
 import 'package:e_clot/data/auth/models/user_signin_request.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -15,6 +16,8 @@ abstract class AuthFirebaseService {
   Future<Either> sendPasswordResetEmail(String email);
 
   Future<bool> isLoggedIn();
+
+  Future<Either> getUser();
 }
 
 class AuthFirebaseServiceImpl implements AuthFirebaseService {
@@ -108,6 +111,29 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
       }
     } catch (error) {
       return false;
+    }
+  }
+
+  @override
+  Future<Either> getUser() async {
+    try {
+      var currentUser = FirebaseAuth.instance.currentUser;
+      if (currentUser == null) {
+        return const Left("You are not authorized to view the details.");
+      }
+      DocumentSnapshot<Map<String, dynamic>> userDataSnapshot =
+          await FirebaseFirestore.instance
+              .collection(FirebaseConstant.userCollection)
+              .doc(currentUser.uid)
+              .get();
+      var userData = userDataSnapshot.data();
+      if (userData == null) {
+        return const Left('Please try again');
+      } else {
+        return Right(UserModel.fromMap(userData));
+      }
+    } catch (error) {
+      return const Left('Please try again.');
     }
   }
 }

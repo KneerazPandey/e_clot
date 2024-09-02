@@ -4,4 +4,6 @@ class AppVectors {
   static const appLogo = '$_basePath/logo.svg';
 
   static const emailSending = '$_basePath/email_sending.svg';
+
+  static const bag = '$_basePath/bag.svg';
 }
