@@ -15,10 +15,16 @@ class CategoryFirebaseServiceImpl implements CategoryFirebaseService {
           await FirebaseFirestore.instance
               .collection(FirebaseConstant.categoryCollection)
               .get();
-      var categories = categoriesSnapshot.docs.map(
-        (category) => CategoryModel.fromMap(category.data()),
-      );
-      return Right(categories);
+
+      List<CategoryModel> categories = categoriesSnapshot.docs
+          .map((category) => CategoryModel.fromMap(category.data()))
+          .toList();
+
+      if (categories.isEmpty) {
+        return const Right([]);
+      } else {
+        return Right(categories);
+      }
     } catch (error) {
       return const Left('Something went wrong. Please try again.');
     }

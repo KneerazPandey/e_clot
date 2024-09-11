@@ -1,3 +1,5 @@
+import 'package:dartz/dartz.dart';
+
 abstract class CategoryRepository {
-  Future<dynamic> getCategories();
+  Future<Either> getCategories();
 }

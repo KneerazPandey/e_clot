@@ -9,12 +9,12 @@ class CategoryModel extends CategoryEntity {
     required super.image,
   });
 
-  CategoryEntity copyWith({
+  CategoryModel copyWith({
     String? title,
     String? categoryId,
     String? image,
   }) {
-    return CategoryEntity(
+    return CategoryModel(
       title: title ?? this.title,
       categoryId: categoryId ?? this.categoryId,
       image: image ?? this.image,
@@ -31,9 +31,9 @@ class CategoryModel extends CategoryEntity {
 
   factory CategoryModel.fromMap(Map<String, dynamic> map) {
     return CategoryModel(
-      title: map['title'] as String,
-      categoryId: map['categoryId'] as String,
-      image: map['image'] as String,
+      title: map['title'] ?? '',
+      categoryId: map['categoryId'] ?? '',
+      image: map['image'] ?? '',
     );
   }
 
